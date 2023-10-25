@@ -1,0 +1,100 @@
+{
+    "notif": [
+        {
+            "avatar":"./assets/images/avatar-mark-webber.webp",
+            "id_notif":"1",
+            "user": "Mark Webber",
+            "action": "reaction_post_notif",
+            "time":"1m ago",
+            "read": 0
+        },
+        {
+            "avatar":"./assets/images/avatar-angela-gray.webp",
+            "id_notif":"2",
+            "user": "Angela Gray",
+            "action": "followed_notif",
+            "time":"5m ago",
+            "read":0
+        },
+        {
+            "avatar":"./assets/images/avatar-jacob-thompson.webp",
+            "id_notif":"3",
+            "user": "Jacob Thompson",
+            "action": "join_group_notif",
+            "time":"1 day ago",
+            "read":0
+        },
+        {
+            "avatar":"./assets/images/avatar-rizky-hasanuddin.webp",
+            "id_notif":"4",
+            "user": "Rizky Hasanuddin",
+            "action": "private_message_notif",
+            "time":"5 days ago",
+            "read":1
+        },
+        {
+            "avatar":"./assets/images/avatar-kimberly-smith.webp",
+            "id_notif":"5",
+            "user": "Kimberly Smith",
+            "action": "commented_picture_notif",
+            "time":"1 week ago",
+            "read":1
+        },
+        {
+            "avatar":"./assets/images/avatar-nathan-peterson.webp",
+            "id_notif":"6",
+            "user": "Nathan Peterson",
+            "action": "reaction_post_notif",
+            "time":"2 weeks ago",
+            "read":1
+        },
+        {
+            "avatar":"./assets/images/avatar-anna-kim.webp",
+            "id_notif":"7",
+            "user": "Anna Kim",
+            "action": "left_group_notif",
+            "time":"2 weeks ago",
+            "read":1
+        }
+    ],
+    "reaction_post_notif": [
+        {
+            "id_notif":"1",
+            "text":"My First Tournament"
+        },
+        {
+            "id_notif":"6",
+            "text":"5 end-game strategies to increase you win rate"
+        }
+    ],
+    "join_group_notif": [
+        {
+            "id_notif":"3",
+            "text":"Chess Club"
+        }
+    ],
+    "followed_notif":[
+        {
+            "id_notif":"2",
+            "text":""
+        }
+    ],
+    "private_message_notif": [
+        {
+            "id_notif":"4",
+            "text":"Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game."
+        }
+    ],
+    "commented_picture_notif": [
+        {
+            "id_notif":"5",
+            "text":"./assets/images/image-chess.webp"
+        }
+    ],
+    "left_group_notif": [
+        {
+            "id_notif":"7",
+            "text":"Chess Club"
+        }
+    ]
+}

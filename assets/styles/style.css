@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap");
+:root {
+  --red: hsl(1, 90%, 64%);
+  --blue: hsl(219, 85%, 26%);
+  --white: hsl(0, 0%, 100%);
+  --very_light_graylist_blue: hsl(210, 60%, 98%);
+  --light_graylist_blue_1: hsl(211, 68%, 94%);
+  --light_graylist_blue_2: hsl(205, 33%, 90%);
+  --graylist_blue: hsl(219, 14%, 63%);
+  --dark_graylist_blue: hsl(219, 12%, 42%);
+  --very_dark_blue: hsl(224, 21%, 14%);
+  --font_large:12px;
+  --font_medium:11px;
+}
+@media screen and (max-width: 475px) {
+  :root {
+    --font_medium:12px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light_graylist_blue_1);
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.notif-parent {
+  width: 450px;
+  height: -moz-fit-content;
+  height: fit-content;
+  height: 80%;
+  padding: 1em 0;
+  font-family: "Plus Jakarta Sans";
+  background-color: var(--white);
+  border-radius: 12px;
+}
+.notif-parent .head {
+  display: flex;
+  padding: 0 1em;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 17px;
+}
+.notif-parent .head #notification {
+  display: flex;
+}
+.notif-parent .head #notification span:nth-child(1) {
+  font-weight: 800;
+}
+.notif-parent .head #notification .notif-count {
+  background-color: var(--blue);
+  width: 25px;
+  display: flex;
+  color: var(--white);
+  margin-left: 7px;
+  border-radius: 4px;
+  font-size: var(--font_large);
+  font-family: 800;
+  justify-content: center;
+  align-items: center;
+  height: 19px;
+}
+.notif-parent .head #read-all {
+  cursor: pointer;
+  font-size: var(--font_large);
+  color: var(--dark_graylist_blue);
+}
+.notif-parent .head #read-all:hover {
+  cursor: pointer;
+  color: var(--blue);
+}
+.notif-parent #notif {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0 1em;
+  height: 92%;
+}
+.notif-parent #notif .item-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 0.55em 0.6em;
+  border-radius: 4px;
+  background-color: var(--very_light_graylist_blue);
+}
+.notif-parent #notif .item-parent .item {
+  display: flex;
+  border: 1px solid unset;
+  position: relative;
+  align-items: flex-start;
+}
+.notif-parent #notif .item-parent .item .avatar {
+  margin-right: 11px;
+}
+.notif-parent #notif .item-parent .item .avatar img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--light_graylist_blue_2);
+}
+.notif-parent #notif .item-parent .item .test {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  top: -2px;
+}
+.notif-parent #notif .item-parent .item .test div {
+  line-height: 0.92;
+}
+.notif-parent #notif .item-parent .item .test div .user {
+  font-weight: 800;
+  font-size: var(--font_medium);
+  margin-right: 4px;
+}
+.notif-parent #notif .item-parent .item .test div .user:hover {
+  color: var(--blue) !important;
+  cursor: pointer;
+}
+.notif-parent #notif .item-parent .item .test div .action {
+  color: var(--graylist_blue);
+  font-size: var(--font_medium);
+  margin-right: 4px;
+}
+.notif-parent #notif .item-parent .item .test div .text {
+  font-weight: 800;
+  color: var(--dark_graylist_blue);
+  font-size: var(--font_medium);
+}
+.notif-parent #notif .item-parent .item .test div .text:hover {
+  color: var(--blue) !important;
+  cursor: pointer;
+}
+.notif-parent #notif .item-parent .item .test div .group {
+  color: var(--blue);
+}
+.notif-parent #notif .item-parent .item .test div .group:hover {
+  color: var(--blue) !important;
+  cursor: pointer;
+}
+.notif-parent #notif .item-parent .item .test div .unread {
+  position: relative;
+}
+.notif-parent #notif .item-parent .item .test div .unread::after {
+  content: "";
+  border-radius: 50%;
+  background-color: var(--red);
+  top: 45%;
+  right: -13.7px;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+}
+@media screen and (max-width: 475px) {
+  .notif-parent #notif .item-parent .item .test div {
+    line-height: 1.1;
+  }
+}
+.notif-parent #notif .item-parent .item .test .time {
+  font-size: var(--font_medium);
+  color: var(--graylist_blue);
+  margin-top: 4px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.notif-parent #notif .item-parent .item .image_message {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+}
+.notif-parent #notif .item-parent .item .image_message:hover {
+  cursor: pointer;
+}
+.notif-parent #notif .item-parent .message {
+  position: relative;
+  border: 1px solid var(--light_graylist_blue_2);
+  padding: 1em;
+  margin-top: 10px;
+  border-radius: 6px;
+  color: var(--dark_graylist_blue);
+  font-size: var(--font_medium);
+}
+.notif-parent #notif .item-parent .message:hover {
+  background-color: var(--light_graylist_blue_1);
+  cursor: pointer;
+}
+@media screen and (max-width: 475px) {
+  .notif-parent {
+    height: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */
