@@ -74,11 +74,13 @@ const showNotif = () => {
 }
 read_all.onclick = () => {
     const unreadNotif = document.querySelectorAll(".unread");
+    const unreadNotifBg = document.querySelectorAll(".bg-light-blue");
     const notif = document.querySelector(".notif-count")
     if (unreadNotif.length > 0) {
         notif.innerText = "0"
-        unreadNotif.forEach(elem => {
+        unreadNotif.forEach((elem, idx) => {
             elem.classList.remove('unread')
+            unreadNotifBg[idx].classList.remove("bg-light-blue")
         })
     }
 

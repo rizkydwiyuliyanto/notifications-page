@@ -120,7 +120,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--light_graylist_blue_2);
   width: var(--image-width);
   height: var(--image-height);
   border-radius: 50%;
