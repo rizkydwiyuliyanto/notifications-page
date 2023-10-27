@@ -38,6 +38,9 @@ const showNotif = () => {
         let { avatar, id_notif, user, action, read, time } = x;
         const divItem = document.createElement("div");
         divItemParent.classList.add("item-parent");
+        if (!read) {
+            divItemParent.classList.add("bg-light-blue");
+        }
         let actionText = followingText(action);
         const notifValue = setText(id_notif, data[action]);
         if (!read) {
@@ -49,15 +52,15 @@ const showNotif = () => {
                     <img src="${avatar}" alt=avatar-${idx}/>
                 </div>
                 <div class="test">
-                    <div>
+                    <p>
                         <span class="user">${user}</span>
                         <span class="action">${actionText}</span>
                         ${action !== "private_message_notif" && !action.includes("picture") ? `<span class="text ${action.includes("group") && "group"}">${notifValue.text}</span>` : ""}
                         <span class="${!read && "unread"}"></span>
-                        </div>
-                        <span class="time">${time}</span>
-                        ${action === "private_message_notif" ? `<p class="message">${notifValue.text}</p>` : ""}
-                    </div>
+                    </p>
+                    <span class="time">${time}</span>
+                     ${action === "private_message_notif" ? `<span class="message">${notifValue.text}</span>` : ""}
+                </div>
                 ${action.includes("picture") ? `<img src=${notifValue.text} class="image_message" alt=image-${idx}/>` : ""}
             </div>
         `

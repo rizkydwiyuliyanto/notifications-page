@@ -9,12 +9,17 @@
   --graylist_blue: hsl(219, 14%, 63%);
   --dark_graylist_blue: hsl(219, 12%, 42%);
   --very_dark_blue: hsl(224, 21%, 14%);
-  --font_large:12px;
-  --font_medium:11px;
+  --font_notif: 12px;
+  --font_medium: 11px;
+  --image-width: 32px;
+  --image-height: 32px;
 }
 @media screen and (max-width: 475px) {
   :root {
-    --font_medium:12px;
+    --image-width: 36px;
+    --image-height: 36px;
+    --font_notif: 15px;
+    --font_medium: 16px;
   }
 }
 
@@ -40,7 +45,7 @@ body {
   width: 450px;
   height: -moz-fit-content;
   height: fit-content;
-  height: 80%;
+  height: 470px;
   padding: 1em 0;
   font-family: "Plus Jakarta Sans";
   background-color: var(--white);
@@ -55,27 +60,30 @@ body {
 }
 .notif-parent .head #notification {
   display: flex;
+  align-items: flex-end;
 }
 .notif-parent .head #notification span:nth-child(1) {
   font-weight: 800;
 }
 .notif-parent .head #notification .notif-count {
   background-color: var(--blue);
-  width: 25px;
+  width: 30px;
+  height: 22px;
   display: flex;
   color: var(--white);
   margin-left: 7px;
   border-radius: 4px;
-  font-size: var(--font_large);
+  font-size: var(--font_notif);
   font-family: 800;
   justify-content: center;
   align-items: center;
-  height: 19px;
 }
 .notif-parent .head #read-all {
   cursor: pointer;
-  font-size: var(--font_large);
+  font-size: var(--font_notif);
   color: var(--dark_graylist_blue);
+  display: flex;
+  align-items: center;
 }
 .notif-parent .head #read-all:hover {
   cursor: pointer;
@@ -87,6 +95,9 @@ body {
   padding: 0 1em;
   height: 92%;
 }
+.notif-parent #notif .bg-light-blue {
+  background-color: var(--very_light_graylist_blue);
+}
 .notif-parent #notif .item-parent {
   display: flex;
   flex-direction: column;
@@ -95,7 +106,6 @@ body {
   position: relative;
   padding: 0.55em 0.6em;
   border-radius: 4px;
-  background-color: var(--very_light_graylist_blue);
 }
 .notif-parent #notif .item-parent .item {
   display: flex;
@@ -107,10 +117,13 @@ body {
   margin-right: 11px;
 }
 .notif-parent #notif .item-parent .item .avatar img {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--light_graylist_blue_2);
+  width: var(--image-width);
+  height: var(--image-height);
+  border-radius: 50%;
 }
 .notif-parent #notif .item-parent .item .test {
   width: 100%;
@@ -121,55 +134,57 @@ body {
   position: relative;
   top: -2px;
 }
-.notif-parent #notif .item-parent .item .test div {
+.notif-parent #notif .item-parent .item .test p {
   line-height: 0.92;
 }
-.notif-parent #notif .item-parent .item .test div .user {
+.notif-parent #notif .item-parent .item .test p .user {
   font-weight: 800;
   font-size: var(--font_medium);
-  margin-right: 4px;
 }
-.notif-parent #notif .item-parent .item .test div .user:hover {
+.notif-parent #notif .item-parent .item .test p .user:hover {
   color: var(--blue) !important;
   cursor: pointer;
 }
-.notif-parent #notif .item-parent .item .test div .action {
+.notif-parent #notif .item-parent .item .test p .action {
   color: var(--graylist_blue);
   font-size: var(--font_medium);
-  margin-right: 4px;
+  padding-left: 4px;
 }
-.notif-parent #notif .item-parent .item .test div .text {
+.notif-parent #notif .item-parent .item .test p .text {
   font-weight: 800;
   color: var(--dark_graylist_blue);
   font-size: var(--font_medium);
+  padding-left: 4px;
 }
-.notif-parent #notif .item-parent .item .test div .text:hover {
+.notif-parent #notif .item-parent .item .test p .text:hover {
   color: var(--blue) !important;
   cursor: pointer;
 }
-.notif-parent #notif .item-parent .item .test div .group {
+.notif-parent #notif .item-parent .item .test p .group {
   color: var(--blue);
+  padding-left: 5px;
 }
-.notif-parent #notif .item-parent .item .test div .group:hover {
+.notif-parent #notif .item-parent .item .test p .group:hover {
   color: var(--blue) !important;
   cursor: pointer;
 }
-.notif-parent #notif .item-parent .item .test div .unread {
-  position: relative;
-}
-.notif-parent #notif .item-parent .item .test div .unread::after {
-  content: "";
+.notif-parent #notif .item-parent .item .test p .unread {
   border-radius: 50%;
   background-color: var(--red);
-  top: 45%;
-  right: -13.7px;
   width: 8px;
   height: 8px;
-  position: absolute;
+  margin-left: 1.4px;
+  display: inline-block;
+}
+@media screen and (max-width: 375px) {
+  .notif-parent #notif .item-parent .item .test p .unread {
+    width: 12px;
+    height: 12px;
+  }
 }
 @media screen and (max-width: 475px) {
-  .notif-parent #notif .item-parent .item .test div {
-    line-height: 1.1;
+  .notif-parent #notif .item-parent .item .test p {
+    line-height: 1.2;
   }
 }
 .notif-parent #notif .item-parent .item .test .time {
@@ -180,8 +195,8 @@ body {
   width: fit-content;
 }
 .notif-parent #notif .item-parent .item .image_message {
-  width: 28px;
-  height: 28px;
+  width: var(--image-width);
+  height: var(--image-height);
   border-radius: 8px;
 }
 .notif-parent #notif .item-parent .item .image_message:hover {

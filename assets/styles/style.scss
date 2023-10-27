@@ -10,10 +10,16 @@
     --graylist_blue: hsl(219, 14%, 63%);
     --dark_graylist_blue: hsl(219, 12%, 42%);
     --very_dark_blue: hsl(224, 21%, 14%);
-    --font_large:12px;
-    --font_medium:11px;
+    --font_notif: 12px;
+    --font_medium: 11px;
+    --image-width: 32px;
+    --image-height: 32px;
+
     @media screen and (max-width: 475px) {
-        --font_medium:12px;
+        --image-width: 36px;
+        --image-height: 36px;
+        --font_notif: 15px;
+        --font_medium: 16px;
     }
 }
 
@@ -39,7 +45,7 @@ body {
 .notif-parent {
     width: 450px;
     height: fit-content;
-    height: 80%;
+    height: 470px;
     padding: 1em 0;
     font-family: "Plus Jakarta Sans";
     background-color: var(--white);
@@ -51,10 +57,9 @@ body {
         justify-content: space-between;
         align-items: center;
         margin-bottom: 17px;
-
         #notification {
-            display: flex;
-
+            display: flex; 
+            align-items: flex-end;           
             span {
                 &:nth-child(1) {
                     font-weight: 800;
@@ -63,23 +68,25 @@ body {
 
             .notif-count {
                 background-color: var(--blue);
-                width: 25px;
+                width: 30px;
+                height: 22px;
                 display: flex;
                 color: var(--white);
                 margin-left: 7px;
                 border-radius: 4px;
-                font-size: var(--font_large);
+                font-size: var(--font_notif);
                 font-family: 800;
                 justify-content: center;
                 align-items: center;
-                height: 19px;
             }
         }
 
         #read-all {
             cursor: pointer;
-            font-size: var(--font_large);
+            font-size: var(--font_notif);
             color: var(--dark_graylist_blue);
+            display: flex;
+            align-items: center;
             &:hover {
                 cursor: pointer;
                 color: var(--blue);
@@ -93,7 +100,9 @@ body {
         overflow-x: hidden;
         padding: 0 1em;
         height: 92%;
-
+        .bg-light-blue {
+            background-color: var(--very_light_graylist_blue);
+        }
         .item-parent {
             display: flex;
             flex-direction: column;
@@ -102,7 +111,6 @@ body {
             position: relative;
             padding: 0.55em 0.6em;
             border-radius: 4px;
-            background-color: var(--very_light_graylist_blue);
             // background-color: var(--light_graylist_blue_1);
             .item {
                 display: flex;
@@ -112,13 +120,16 @@ body {
                 align-items: flex-start;
 
                 .avatar {
-                    margin-right:11px;
+                    margin-right: 11px;
 
                     img {
-                        width: 28px;
-                        height: 28px;
-                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                         border: 1px solid var(--light_graylist_blue_2);
+                        width: var(--image-width);
+                        height: var(--image-height);
+                        border-radius: 50%;
                     }
                 }
 
@@ -130,61 +141,65 @@ body {
                     height: 100%;
                     position: relative;
                     top: -2px;
-                    // border: 1px solid red;
-                    div {
+
+                    p {
                         // border: 1px solid yellow;
                         line-height: 0.92;
                         .user {
                             font-weight: 800;
                             font-size: var(--font_medium);
-                            margin-right: 4px;
+                            // margin-right: 4px;
+
                             &:hover {
                                 color: var(--blue) !important;
                                 cursor: pointer;
                             }
                         }
-
                         .action {
                             color: var(--graylist_blue);
                             font-size: var(--font_medium);
-                            margin-right: 4px;
+                            padding-left: 4px;
                         }
 
                         .text {
                             font-weight: 800;
                             color: var(--dark_graylist_blue);
                             font-size: var(--font_medium);
-                            &:hover {
-                                color: var(--blue) !important;
-                                cursor: pointer;
-                            }
-                        }
-                        .group {
-                            color: var(--blue);
+                            // border: 1px solid red;
+                            padding-left: 4px;
+
                             &:hover {
                                 color: var(--blue) !important;
                                 cursor: pointer;
                             }
                         }
 
-                        .unread {
-                            position: relative;
-                            &::after {
-                                content: "";
-                                border-radius: 50%;
-                                background-color: var(--red);
-                                // transform: translate(-50%, -50%);
-                                top: 45%;
-                                right: -13.7px;
-                                width: 8px;
-                                height: 8px;
-                                position: absolute;
+                        .group {
+                            color: var(--blue);
+                            padding-left: 5px;
+                            &:hover {
+                                color: var(--blue) !important;
+                                cursor: pointer;
                             }
                         }
+                        .unread {
+                            border-radius: 50%;
+                            background-color: var(--red);
+                            width: 8px;
+                            height: 8px;
+                            margin-left: 1.4px;
+                            display: inline-block;
+                            @media screen and (max-width: 375px) {
+                                width: 12px;
+                                height: 12px;
+                            }
+                        }
+
                         @media screen and (max-width: 475px) {
-                            line-height: 1.1;
+                            line-height: 1.2;
                         }
                     }
+
                     .time {
                         font-size: var(--font_medium);
                         color: var(--graylist_blue);
@@ -192,15 +207,18 @@ body {
                         width: fit-content;
                     }
                 }
+
                 .image_message {
-                    width: 28px;
-                    height: 28px;
+                    width: var(--image-width);
+                    height: var(--image-height);
                     border-radius: 8px;
+
                     &:hover {
                         cursor: pointer;
                     }
                 }
             }
+
             .message {
                 position: relative;
                 border: 1px solid var(--light_graylist_blue_2);
@@ -209,13 +227,15 @@ body {
                 border-radius: 6px;
                 color: var(--dark_graylist_blue);
                 font-size: var(--font_medium);
+                // line-height: 20;
                 &:hover {
-                    background-color:var(--light_graylist_blue_1);
+                    background-color: var(--light_graylist_blue_1);
                     cursor: pointer;
                 }
             }
         }
     }
+
     @media screen and (max-width: 475px) {
         height: 100%;
     }
